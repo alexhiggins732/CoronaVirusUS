@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58375C8E-C7DB-4694-B97F-0BC82F3B3D31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AsposeCreds</RootNamespace>
+    <AssemblyName>AsposeCreds</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.3D, Version=20.3.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.3D.20.3.0\lib\net46\Aspose.3D.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.BarCode, Version=20.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.BarCode.20.2.0\lib\net45\Aspose.BarCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.CAD, Version=20.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.CAD.20.1.0\lib\net40\Aspose.CAD.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Cells, Version=20.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells.20.2.0\lib\net40\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Diagram, Version=20.3.0.0, Culture=neutral, PublicKeyToken=dfdba7ce0555ea8b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Diagram.20.3.0\lib\net40\Aspose.Diagram.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Email, Version=20.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Email.20.2.0\lib\net40\Aspose.Email.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.GIS, Version=20.3.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.GIS.20.3.0\lib\net47\Aspose.GIS.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.HTML, Version=20.3.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.HTML.20.3.0\lib\net40\Aspose.HTML.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Imaging, Version=20.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Imaging.20.2.0\lib\net40\Aspose.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Note, Version=20.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Note.20.1.0\lib\net4.0\Aspose.Note.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.OCR, Version=19.9.1.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=AMD64">
+      <HintPath>..\packages\Aspose.OCR.19.9.3\lib\net46\Aspose.OCR.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.OMR, Version=19.9.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.OMR.19.9.0\lib\net40\Aspose.OMR.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Page, Version=20.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Page.20.1.0\lib\net452\Aspose.Page.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.PDF, Version=20.3.0.0, Culture=neutral, PublicKeyToken=f0262d67fe233d63, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.PDF.20.3.0\lib\net4.0\Aspose.PDF.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.PSD, Version=20.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.PSD.20.2.0\lib\net40\Aspose.PSD.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.PUB, Version=20.2.0.0, Culture=neutral, PublicKeyToken=f0262d67fe233d63, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.PUB.20.2.0\lib\net4.5\Aspose.PUB.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Slides, Version=20.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Slides.NET.20.2.0\lib\net4.0-client\Aspose.Slides.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Tasks, Version=20.3.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Tasks.20.3.0\lib\net40\Aspose.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Words, Version=20.3.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Words.20.3.0\lib\net40\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Zip, Version=20.3.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Zip.20.3.0\lib\net40\Aspose.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsposeLicenseHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
