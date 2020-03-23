@@ -9,6 +9,6 @@ Upon first run, you will be prompted for your twitter API settings.
 
 Your Aspose licensce needs to placed in the same directory.
 
-Data for publication is monitored from m
+Data for publication is monitored from:
 * World Data: https://www.worldometers.info/coronavirus/
 * US Data: https://www.worldometers.info/coronavirus/country/us/
