@@ -9,7 +9,7 @@ namespace CoronaVirusUS
     internal class UsDataProcessor
     {
 
-       internal static DataTable GetData()
+        internal static DataTable GetData()
         {
             bool success = false;
             var result = new DataTable();
@@ -31,12 +31,12 @@ namespace CoronaVirusUS
                     //for (var i = 0; i < 7; i++)
                     //    result.Columns.Add();
                     result.Columns.Add("Location");
-                    result.Columns.Add("Cases");
-                    result.Columns.Add("New");
-                    result.Columns.Add("Deaths");
-                    result.Columns.Add("New Deaths");
-                    result.Columns.Add("Recovered");
-                    result.Columns.Add("Active");
+                    result.Columns.Add("Cases", typeof(int));
+                    result.Columns.Add("New", typeof(int));
+                    result.Columns.Add("Deaths", typeof(int));
+                    result.Columns.Add("New Deaths", typeof(int));
+                    //result.Columns.Add("Recovered");
+                    result.Columns.Add("Active", typeof(int));
                     var table = htmlDoc.QuerySelectorAll("table").First();
 
                     var dataTableRows = table.QuerySelectorAll("tbody tr");
@@ -56,9 +56,9 @@ namespace CoronaVirusUS
                         row["Cases"] = ParseInt(cols[1].InnerText);
                         row["New"] = ParseInt(cols[2].InnerText);
                         row["Deaths"] = ParseInt(cols[3].InnerText);
-                        row["New Deaths"] = ParseInt(cols[4].InnerText);
-                        row["Recovered"] = ParseInt(cols[5].InnerText);
-                        row["Active"] = ParseInt(cols[6].InnerText);
+                        row["New Deaths"] = ParseInt(cols[4].InnerText.Replace("-", ""));
+                        //row["Recovered"] = ParseInt(cols[5].InnerText);
+                        row["Active"] = ParseInt(cols[5].InnerText);
                         result.Rows.Add(row);
 
                     }
@@ -82,5 +82,19 @@ namespace CoronaVirusUS
         }
 
         static string URLRequest(string url) { return new WebClient().DownloadString(url); }
+
+        public static int GetNyProbable()
+        {
+            var html = URLRequest("http://datawrapper.dwcdn.net/MBAaS/13/");
+            var lines = html.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            var dataLine = lines.First(x => x.Trim().StartsWith("chartData:")).Trim();
+            var l = dataLine.Split(new[] { "\\r\\n" }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            var probableData = l.First(x => x.StartsWith("Probable,"));
+            var probableDelim = probableData.IndexOf(",");
+            var probableText1 = probableData.Substring(probableDelim + 1);
+            var result = ParseInt(probableText1);
+            return result;
+           
+        }
     }
 }

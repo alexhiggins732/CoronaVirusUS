@@ -108,7 +108,7 @@ namespace CoronaVirusUS
                 builder.ParagraphFormat.Alignment = paragraphAlignmentValue;
             }
             var size = builder.Font.Size;
-            builder.Font.Size = size - 2;
+            builder.Font.Size = size - 3;
 
             foreach (DataRow dataRow in dataTable.Rows)
             {

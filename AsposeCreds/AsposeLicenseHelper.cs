@@ -16,6 +16,8 @@ namespace AsposeCreds
             var licenseFileInfo = GetLicenseFile();
             var licenseFileFullPath = licenseFileInfo.FullName;
             license.SetLicense(licenseFileFullPath);
+            Aspose.Cells.License cellsLic = new Aspose.Cells.License();
+            cellsLic.SetLicense(licenseFileFullPath);
         }
         private static FileInfo GetLicenseFile()
         {

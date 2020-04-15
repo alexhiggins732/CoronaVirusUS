@@ -42,6 +42,7 @@ namespace CoronaVirusUS
             DateTime lastTableDate = DateTime.Now.AddMinutes(-sleepMinutes);
             int sleep = sleepMinutes * 60 * 1000;
             int globalChartTimeout = Properties.Settings.Default.GlobalChartTimeout;
+            bool hasChanged = true;
             while (true)
             {
                 restart:
@@ -79,6 +80,7 @@ namespace CoronaVirusUS
                         System.Threading.Thread.Sleep(30000);
                         goto restart;
                     }
+                    hasChanged = true;
                 }
 
                 int topLimit = Properties.Settings.Default.TopLimit;
@@ -104,7 +106,7 @@ namespace CoronaVirusUS
                     lastUpdated = DateTime.Now;
                 }
                 coll = newColl;
-                if (!pubbedAggr || DateTime.Now.Subtract(lastTableDate).TotalMinutes >= globalChartTimeout && changes.Count > 0)
+                if (!pubbedAggr || DateTime.Now.Subtract(lastTableDate).TotalMinutes >= globalChartTimeout && hasChanged)
                 {
                     if (bool.Parse(bool.FalseString))
                     {
@@ -112,10 +114,18 @@ namespace CoronaVirusUS
                     }
 
                     lastTableDate = DateTime.Now;
-                    var formatted = $"US #CoronaVirus: To date a total of {dCount.ToString("N0")} total deaths and {cCount.ToString("N0")} total #covid19 cases have been confirmed in the United States.";
-                    //if()
-                    if (changes.Any(x => x.New.Loc == "China") && cRotwCount != lastCtRowCount)
-                        formatted = $"#CoronaVirus Outside of China - {cRotwCount.ToString("N0")} cases and {dRotwCount.ToString("N0")} deaths.\n\nTo date a total of {dCount.ToString("N0")} deaths and {cCount.ToString("N0")} total #covid19 cases have been confirmed worldwide.\n\n#CoronaVirusOutbreak";
+                    var formatted = $"US #CoronaVirus: {cCount.ToString("N0")} cases and " +
+                        $"{dCount.ToString("N0")} deaths reported in the United States to date.";
+
+                    var newCaseSummary = $"{newCCount.ToString("N0")} new cases";
+                    var newDeathSummary = $"{newDCount.ToString("N0")} new deaths";
+
+                    var summaries = new List<string>();
+                    if (newCCount > 0) summaries.Add(newCaseSummary);
+                    if (newDCount > 0) summaries.Add(newDeathSummary);
+                    var summary = summaries.Count == 0 ? "" : $"\n\n{string.Join(" and ", summaries)} have been reported so far today.";
+
+                    if (!string.IsNullOrEmpty(summary)) formatted += summary;
 
                     var Processor = new TemplateProcessor(formatted);
                     formatted = Processor.GetProcessedText();
@@ -131,12 +141,16 @@ namespace CoronaVirusUS
                     totalGlobalRow[2] = newCCount;
                     totalGlobalRow[3] = dCount;
                     totalGlobalRow[4] = newDCount;
-                    data.Rows.Add(totalGlobalRow);
+                    data.Rows.InsertAt(totalGlobalRow, 0);
+                    //data.Rows.Add(totalGlobalRow);
 
                     var rows = data.Rows.Cast<DataRow>().ToList();
 
-                   
 
+                    var filter = new[] {"Wuhan Repatriated", "Diamond Princess" };
+                    var filteredRows = rows.Where(row => (string)row[0] != "Wuhan Repatriated" && (string)row[0] != "Diamond Princess Cruise").ToList();
+
+                    var documentData = filteredRows.CopyToDataTable();
                     //data.AcceptChanges();
                     var doc = AsposeHelper.GetDataTableDocument(data);
                     var fileNamePng = $"covus-table-{DateTime.Now.ToFileTimeUtc()}.png";
@@ -157,6 +171,7 @@ namespace CoronaVirusUS
                     Tweet.PublishTweet(formatted, tParams);
                     System.Threading.Thread.Sleep(10000);
                     pubbedAggr = true;
+                    hasChanged = false;
                 }
                 int diff = (int)DateTime.Now.Subtract(start).TotalMilliseconds;
 
