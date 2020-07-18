@@ -102,7 +102,7 @@ namespace CoronaVirusUS
                     //    Medias = new List<IMedia>() { UpdateMedia }
                     //};
                     Tweet.PublishTweet(tagged);
-                    System.Threading.Thread.Sleep(10000);
+                    System.Threading.Thread.Sleep(120000);
                     lastUpdated = DateTime.Now;
                 }
                 coll = newColl;

@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsposeCreds", "AsposeCreds\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskforceModels", "TaskforceModels\TaskforceModels.csproj", "{495DD179-1692-4F4E-86AD-8069B1179E9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NycProbableTracker", "NycProbableTracker\NycProbableTracker.csproj", "{13D1B076-FD7F-4BBE-9133-05B1E2CE56AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovidPNIModels", "CovidPNIModels\CovidPNIModels.csproj", "{12E1CD12-C3D5-4227-B04C-A90E3A20A76A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{495DD179-1692-4F4E-86AD-8069B1179E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{495DD179-1692-4F4E-86AD-8069B1179E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{495DD179-1692-4F4E-86AD-8069B1179E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13D1B076-FD7F-4BBE-9133-05B1E2CE56AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13D1B076-FD7F-4BBE-9133-05B1E2CE56AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13D1B076-FD7F-4BBE-9133-05B1E2CE56AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13D1B076-FD7F-4BBE-9133-05B1E2CE56AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E1CD12-C3D5-4227-B04C-A90E3A20A76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E1CD12-C3D5-4227-B04C-A90E3A20A76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E1CD12-C3D5-4227-B04C-A90E3A20A76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E1CD12-C3D5-4227-B04C-A90E3A20A76A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -112,6 +112,15 @@ namespace CoronaVirusUS
 
             foreach (DataRow dataRow in dataTable.Rows)
             {
+                var loc = dataRow[0].ToString();
+                switch (loc)
+                {
+                    case "Diamond Princess Ship":
+                    case "Wuhan Repatriated":
+                        continue;
+                    default:
+                        break;
+                }
                 foreach (object item in dataRow.ItemArray)
                 {
                     // Insert a new cell for each object.

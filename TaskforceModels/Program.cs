@@ -22,6 +22,8 @@ namespace TaskforceModels
         }
         static void Main(string[] args)
         {
+            //FluStatProvider.GetMinMaxFlu();
+            //NycProbableTracker.NycProbableProvider.GetNyProbable();
             //ReportCardProcessor.Run();
             //UWLocations.RunAdjustedForecastByDailyDeathsSum();
             //WorkbookProcessor.CreateHtmlDoc();
@@ -53,7 +55,7 @@ namespace TaskforceModels
                 sb.AppendLine($"<span class='chart totaldeaths'><img src='{fileName2}' /></span>");
                 sb.AppendLine($"</span>");
             }
-           File.WriteAllText(file, $@"<!DOCTYPE html>
+            File.WriteAllText(file, $@"<!DOCTYPE html>
 
 <html lang='en' xmlns='http://www.w3.org/1999/xhtml'>
 <head>
@@ -68,10 +70,12 @@ namespace TaskforceModels
         }
         public static void Run()
         {
+
             var path = @"\\homer\users\alexander.higgins\Documents\UWModelTemplate - Copy.xlsx";
+            path = @"C:\source\repos\templates\UWModelTemplate - Copy.xlsx";
             bool exists = File.Exists(path);
 
-            File.Copy(path, @"\\homer\users\alexander.higgins\Documents\UWModelTemplate-processed.xlsx", true);
+            File.Copy(path, @"C:\source\repos\templates\UWModelTemplate-processed.xlsx", true);
             var wb = new Workbook(path);
             var designer = new WorkbookDesigner(wb);
 
@@ -159,8 +163,8 @@ namespace TaskforceModels
 
 
             }
-
-            wb.Save(@"\\homer\users\alexander.higgins\Documents\UWModelTemplate-processed.xlsx");
+            //wb.Save(@"\\homer\users\alexander.higgins\Documents\UWModelTemplate-processed.xlsx")
+            wb.Save(@"c:\source\repos\templates\UWModelTemplate-processed.xlsx");
         }
 
         private static List<string> GetLocations()

@@ -41,6 +41,7 @@ namespace CoronaVirusUS
 
                     var dataTableRows = table.QuerySelectorAll("tbody tr");
 
+
                     foreach (var tr in dataTableRows)
                     {
                         var row = result.NewRow();
@@ -55,7 +56,8 @@ namespace CoronaVirusUS
 
                         row["Cases"] = ParseInt(cols[1].InnerText);
                         row["New"] = ParseInt(cols[2].InnerText);
-                        row["Deaths"] = ParseInt(cols[3].InnerText);
+                        row["Deaths"] = ParseInt(cols[3].InnerText) ;
+
                         row["New Deaths"] = ParseInt(cols[4].InnerText.Replace("-", ""));
                         //row["Recovered"] = ParseInt(cols[5].InnerText);
                         row["Active"] = ParseInt(cols[5].InnerText);
@@ -83,18 +85,6 @@ namespace CoronaVirusUS
 
         static string URLRequest(string url) { return new WebClient().DownloadString(url); }
 
-        public static int GetNyProbable()
-        {
-            var html = URLRequest("http://datawrapper.dwcdn.net/MBAaS/13/");
-            var lines = html.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
-            var dataLine = lines.First(x => x.Trim().StartsWith("chartData:")).Trim();
-            var l = dataLine.Split(new[] { "\\r\\n" }, StringSplitOptions.RemoveEmptyEntries).ToArray();
-            var probableData = l.First(x => x.StartsWith("Probable,"));
-            var probableDelim = probableData.IndexOf(",");
-            var probableText1 = probableData.Substring(probableDelim + 1);
-            var result = ParseInt(probableText1);
-            return result;
-           
-        }
+
     }
 }
